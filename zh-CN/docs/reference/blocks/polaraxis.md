@@ -134,7 +134,7 @@ The hard limits for `ax.gridz` are `(-10_000, 10_000)` with `9000` being a soft 
 
 ## Hiding spines and decorations
 
-For a `PolarAxis` we interpret the outer ring limiting the plotting area as the
+For a `PolarAxis` we interpret the outer ring limitting the plotting are as the
 axis spine. You can manipulate it with the `spine...` attributes.
 
 \begin{examplefigure}{svg = true}
