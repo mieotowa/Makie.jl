@@ -1,8 +1,8 @@
-# arc
+# 弧线（Arc）
 
 {{doc arc}}
 
-## Examples
+## 示例
 
 \begin{examplefigure}{svg = true}
 
