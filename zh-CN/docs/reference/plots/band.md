@@ -2,7 +2,7 @@
 
 {{doc band}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
