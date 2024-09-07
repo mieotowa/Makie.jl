@@ -1,8 +1,8 @@
-# errorbars
+# 误差条（errorbars）
 
 {{doc errorbars}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
