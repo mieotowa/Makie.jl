@@ -1,8 +1,8 @@
-# scatterlines
+# 散点线（scatterlines）
 
 {{doc scatterlines}}
 
-## Examples
+## 示例
 
 \begin{examplefigure}{svg = true}
 
