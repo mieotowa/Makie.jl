@@ -2,9 +2,9 @@
 
 {{doc series}}
 
-## Examples
+## 示例
 
-### Matrix
+### 矩阵
 
 \begin{examplefigure}{}
 
@@ -22,7 +22,7 @@ fig
 
 \end{examplefigure}
 
-### Vector of vectors
+### 向量的向量（Vector of vectors）
 
 \begin{examplefigure}{}
 
@@ -34,7 +34,7 @@ series(pointvectors, markersize=5, color=:Set1)
 
 \end{examplefigure}
 
-### Vector and matrix
+### 向量和矩阵
 
 \begin{examplefigure}{}
 
