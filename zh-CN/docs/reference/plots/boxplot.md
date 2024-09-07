@@ -1,8 +1,8 @@
-# boxplot
+# 盒状图（boxplot）
 
 {{doc boxplot}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
@@ -40,9 +40,8 @@ Colors are customizable. The `color` attribute refers to the color of the boxes,
 must have the length of the data. If `outliercolor` is not provided, outliers will have the
 same color as their box, as shown above.
 
-!!! note
-For all indices corresponding to points within the same box, `color` (but not `outliercolor`)
-must have the same value.
+!!! 注意
+对于同一盒状图内所有点对应的索引，`color`（而非 `outliercolor`）必须具有相同值。
 
 \begin{examplefigure}{}
 
@@ -60,7 +59,7 @@ boxplot(categories, values, dodge = dodge, show_notch = true, color = map(d->d==
 
 \end{examplefigure}
 
-#### Using statistical weights
+#### 使用统计权重
 
 \begin{examplefigure}{}
 
@@ -85,7 +84,7 @@ fig
 
 \end{examplefigure}
 
-#### Horizontal axis
+#### 水平轴
 
 \begin{examplefigure}{}
 
