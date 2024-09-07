@@ -1,8 +1,9 @@
-# Box
+# 盒（Box）
 
-A simple rectangle with optionally rounded corners.
+带可选圆角的简单矩形。
+它可用于视觉上分组布局的一部分，或作为占位符。
 This can be useful to visually group parts of a layout, or as a placeholder.
 
-## Attributes
+## 属性
 
 \attrdocs{Box}
