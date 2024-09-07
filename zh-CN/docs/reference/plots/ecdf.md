@@ -2,7 +2,7 @@
 
 {{doc ecdfplot}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
