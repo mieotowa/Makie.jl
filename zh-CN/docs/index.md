@@ -1,14 +1,15 @@
 @def title = "Home"
 @def order = 0
 @def frontpage = true
-@def description = "Create impressive data visualizations with Makie, the plotting ecosystem for the Julia language. Build aesthetic plots with beautiful customizable themes, control every last detail of publication quality vector graphics, assemble complex layouts and quickly prototype interactive applications to explore your data live."
+@def description = "使用Julia编程语言的绘图生态系统 Makie 创建令人印象深刻的数据可视化。 Build aesthetic plots with beautiful customizable themes, control every last detail of publication quality vector graphics, assemble complex layouts and quickly prototype interactive applications to explore your data live." Build aesthetic plots with beautiful customizable themes, control every last detail of publication quality vector graphics, assemble complex layouts and quickly prototype interactive applications to explore your data live."
 
-# Welcome to Makie!
+# 欢迎来到 Makie！
 
-Makie is a data visualization ecosystem for the [Julia](https://julialang.org/) programming language, with high performance and extensibility.
+Makie 是一个数据可视化生态系统，用于 [Julia](https://julialang.org/) 编程语言，具有高性能和可扩展性。
+它适用于Windows、Mac和Linux。
 It is available for Windows, Mac and Linux.
 
-## Example
+## 例子
 
 ```
 <input id="hidecode" class="hidecode" type="checkbox">
@@ -69,7 +70,7 @@ set_theme!() # hide
 
 \video{lorenz, autoplay = true}
 
-## Installation and Import
+## 安装和导入
 
 Add one or more of the Makie backend packages [`GLMakie.jl`](/explanations/backends/glmakie/) (OpenGL), [`CairoMakie.jl`](/explanations/backends/cairomakie/) (Cairo), or [`WGLMakie.jl`](/explanations/backends/wglmakie/) (WebGL), [`RPRMakie`](/explanations/backends/rprmakie/) (RadeonProRender) using Julia's inbuilt package manager. Each backend re-exports `Makie` so there's no need to install it separately.
 
@@ -84,45 +85,56 @@ To switch to a different backend, for example `CairoMakie`, call `CairoMakie.act
 
 ## First Steps
 
-@@box-container
-@@box
-~~~<a class="boxlink" href="tutorials/basic-tutorial/">~~~
-@@title Basic Tutorial @@
+@@title 基础教程 @@
 @@box-content
 @@description
-Learn the basics of plotting with Makie.
-@@
-~~~ <img src="/assets/basic_tutorial_example.png">
-~~~
-@@
-~~~</a>~~~
-@@
+学习使用 Makie 绘图的基础知识.
+@@```\<img src="/assets/basic\_tutorial\_example.png">
+      新手入门
+```
 
-@@box
-~~~<a class="boxlink" href="tutorials/layout-tutorial/">~~~
-@@title Layout Tutorial @@
+@@@@box```\<a class="boxlink" href="tutorials/layout-tutorial/">\~\~\~
+@@title 布局教程 @@
 @@box-content
 @@description
-Check out how to make complex plots and layouts.
+查看如何制作复杂的图表和布局。
 @@
 ~~~ <img src="/assets/tutorials/layout-tutorial/code/output/final_result.png">
-~~~
-@@
-~~~</a>~~~
-@@
+      @@
+      ~~~
+<img src="/assets/tutorials/layout-tutorial/code/output/final_result.png">
+      ~~~
+    @@
+    ~~~</a>~~~
+  @@
+```
 
-@@box
-~~~<a class="boxlink" href="reference/plots/">~~~
-@@title Plot Reference @@
+@@
+@@## 引用 MakieIf you use Makie for a scientific publication, please cite [our JOSS paper](https://joss.theoj.org/papers/10.21105/joss.03349) the following way:> Danisch & Krumbiegel, (2021). Makie.jl: Flexible high-performance data visualization for Julia. Journal of Open Source Software, 6(65), 3349, https://doi.org/10.21105/joss.03349You can use the following BibTeX entry:```
+@article{DanischKrumbiegel2021,
+  doi = {10.21105/joss.03349},
+  url = {https://doi.org/10.21105/joss.03349},
+  year = {2021},
+  publisher = {The Open Journal},
+  volume = {6},
+  number = {65},
+  pages = {3349},
+  author = {Simon Danisch and Julius Krumbiegel},
+  title = {{Makie.jl}: Flexible high-performance data visualization for {Julia}},
+  journal = {Journal of Open Source Software}
+}
+```## 获取帮助1) 使用 REPL `?` 帮助模式。
+2) Click this link to open a preformatted topic on the [Julia Discourse Page](https://discourse.julialang.org/new-topic?title=Makie%20-%20Your%20question%20here\\&category=domain/viz\\&tags=Makie\\&body=You%20can%20write%20your%20question%20in%20this%20space.%0A%0ABefore%20asking%2C%20please%20take%20a%20minute%20to%20make%20sure%20that%20you%20have%20installed%20the%20latest%20available%20versions%20and%20have%20looked%20at%20%5Bthe%20most%20recent%20documentation%5D\\(http%3A%2Fmakie.juliaplots.org%2Fstable%2F\\)%20%3Ainnocent%3A). If you do this manually, please use the category Domain/Visualization and tag questions with `Makie` to increase their visibility.
+3) For casual conversation about Makie and its development, have a look at the  [Makie Discord Server](https://discord.gg/6mpFXPCvks). Please direct your usage questions to [Discourse](https://discourse.julialang.org/new-topic?title=Makie%20-%20Your%20question%20here\\&category=domain/viz\\&tags=Makie\\&body=You%20can%20write%20your%20question%20in%20this%20space.%0A%0ABefore%20asking%2C%20please%20take%20a%20minute%20to%20make%20sure%20that%20you%20have%20installed%20the%20latest%20available%20versions%20and%20have%20looked%20at%20%5Bthe%20most%20recent%20documentation%5D\\(http%3A%2Fmakie.juliaplots.org%2Fstable%2F\\)%20%3Ainnocent%3A) and not to Slack, to make questions and answers accessible to everybody.
+4) For technical issues and bug reports, open an [issue](https://github.com/MakieOrg/Makie.jl/issues/new) in the [Makie.jl](https://github.com/MakieOrg/Makie.jl) repository which serves as the central hub for Makie and backend issues.
+   @@@@box```\<a class="boxlink" href="reference/plots/">\~\~\~
+@@title Plot 参考 @@
 @@box-content
 @@description
-A visual reference of all available plotting functions and their attributes.
+所有可用绘图函数及其属性的视觉参考。
 @@
 ~~~ <img src="/assets/reference/plots/heatmap/code/output/mandelbrot_heatmap.png">
-~~~
-@@
-~~~</a>~~~
-@@
+```
 
 @@
 
@@ -130,45 +142,47 @@ A visual reference of all available plotting functions and their attributes.
 
 There are four backends, each of which has particular strengths. You can switch between backends at any time.
 
-@@box-container
-@@box
-~~~<a class="boxlink" href="/explanations/backends/glmakie/">~~~
+@@@@## Makie 生态系统Makie 共有四个后端，它们有各自的特性。 您可以随时在不同后端之间切换。@@box-container
+@@box```\<a class="boxlink" href="/explanations/backends/glmakie/">\~\~\~
 @@title GLMakie.jl@@
 @@box-content
 @@description
 GPU-powered, interactive 2D and 3D plotting in standalone `GLFW.jl` windows.
 @@
 ~~~ <img src="/assets/surface_example.png">
-~~~
-@@
-~~~</a>~~~
-@@
+      @@
+      ~~~
+<img src="/assets/surface_example.png">
+      ~~~
+    @@
+    ~~~</a>~~~
+  @@
+```
 
-@@box
-~~~<a class="boxlink" href="/explanations/backends/cairomakie/">~~~
+@@@@box```\<a class="boxlink" href="/explanations/backends/cairomakie/">\~\~\~
 @@title CairoMakie.jl @@
 @@box-content
 @@description
 `Cairo.jl` based, non-interactive 2D backend for publication-quality vector graphics.
 @@
 ~~~ <img src="/assets/density_example.png">
-~~~
-@@
-~~~</a>~~~
-@@
+      @@
+      ~~~
+<img src="/assets/density_example.png">
+      ~~~
+    @@
+    ~~~</a>~~~
+  @@
+```
 
-@@box
-~~~<a class="boxlink" href="/explanations/backends/wglmakie/">~~~
+@@@@box```\<a class="boxlink" href="/explanations/backends/wglmakie/">\~\~\~
 @@title WGLMakie.jl @@
 @@box-content
 @@description
 WebGL-based interactive 2D and 3D plotting that runs within browsers.
 @@
 ~~~ <img src="/assets/wireframe_example.png">
-~~~
-@@
-~~~</a>~~~
-@@
+      @@
 @@box
 ~~~<a class="boxlink" href="explanations/backends/rprmakie/">~~~
 @@title RPRMakie.jl @@
@@ -177,11 +191,15 @@ WebGL-based interactive 2D and 3D plotting that runs within browsers.
 Backend using RadeonProRender for raytracing Makie scenes.
 @@
 ~~~ <img src="/assets/topographie.png">
-~~~
+      @@
+      ~~~
+<img src="/assets/topographie.png">
+      ~~~
+    @@
+    ~~~</a>~~~
+  @@
 @@
-~~~</a>~~~
-@@
-@@
+```
 
 The differences between backends are explained in more details under \myreflink{Backends}.
 
@@ -189,59 +207,67 @@ The differences between backends are explained in more details under \myreflink{
 
 These packages and sites are maintained by third parties. If you install packages, keep an eye on version conflicts or downgrades as the Makie ecosystem is developing quickly so things break occasionally.
 
-@@box-container
-@@box
-~~~<a class="boxlink" href="https://github.com/MakieOrg/AlgebraOfGraphics.jl/">~~~
+@@
+@@The differences between backends are explained in more details under \myreflink{Backends}.### Extensions and ResourcesThese packages and sites are maintained by third parties. If you install packages, keep an eye on version conflicts or downgrades as the Makie ecosystem is developing quickly so things break occasionally.@@box-container
+@@box```\<a class="boxlink" href="https\://github.com/MakieOrg/AlgebraOfGraphics.jl/">\~\~\~
 @@title AlgebraOfGraphics.jl @@
 @@box-content
 @@description
 Grammar-of-graphics style plotting, inspired by ggplot2.
 @@
 ~~~ <img src="/assets/aog_example.png">
-~~~
-@@
-~~~</a>~~~
-@@
+      @@
+      ~~~
+<img src="/assets/aog_example.png">
+      ~~~
+    @@
+    ~~~</a>~~~
+  @@
+```
 
-@@box
-~~~<a class="boxlink" href="https://beautiful.makie.org">~~~
+@@@@box```\<a class="boxlink" href="https\://beautiful.makie.org">\~\~\~
 @@title Beautiful Makie @@
 @@box-content
 @@description
 This third-party gallery contains many advanced examples.
 @@
 ~~~ <img src="/assets/beautifulmakie_example.png">
-~~~
-@@
-~~~</a>~~~
-@@
-
+      @@box-container
 @@box
-~~~<a class="boxlink" href="https://github.com/MakieOrg/GraphMakie.jl">~~~
+```
+
+@@@@box```\<a class="boxlink" href="https\://github.com/MakieOrg/GraphMakie.jl">\~\~\~
 @@title GraphMakie.jl @@
 @@box-content
 @@description
 Graphs with two- and three-dimensional layout algorithms.
 @@
 ~~~ <img src="/assets/graphmakie.png">
-~~~
-@@
-~~~</a>~~~
-@@
+      @@
+      ~~~
+<img src="/assets/graphmakie.png">
+      ~~~
+    @@
+    ~~~</a>~~~
+  @@
+```
 
-@@box
-~~~<a class="boxlink" href="https://github.com/MakieOrg/GeoMakie.jl">~~~
+@@@@box```\<a class="boxlink" href="https\://github.com/MakieOrg/GeoMakie.jl">\~\~\~
 @@title GeoMakie.jl @@
 @@box-content
 @@description
 Geographic plotting utilities including projections.
 @@
 ~~~ <img src="/assets/geomakie_example.png">
-~~~
+      @@
+      ~~~
+<img src="/assets/geomakie_example.png">
+      ~~~
+    @@
+    ~~~</a>~~~
+  @@
 @@
-~~~</a>~~~
-@@
-@@
+```
 
 ## Citing Makie
 
