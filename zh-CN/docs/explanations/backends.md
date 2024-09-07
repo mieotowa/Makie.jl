@@ -1,29 +1,31 @@
 # Backends
 
-Makie is the frontend package that defines all plotting functions.
+Makie是定义所有绘图功能的前端包。
+每个后端都会重新导出它，因此您无需特别安装或导入它。
 It is reexported by every backend, so you don't have to specifically install or import it.
 
-There are four backends which concretely implement all abstract rendering capabilities defined in Makie:
+有四个后端具体实现了 Makie 中定义的所有抽象渲染能力：
 
-| Package                                               | Description                                                                                                                             |
-| :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| [`GLMakie.jl`](/explanations/backends/glmakie/)       | GPU-powered, interactive 2D and 3D plotting in standalone `GLFW.jl` windows.                                            |
-| [`CairoMakie.jl`](/explanations/backends/cairomakie/) | `Cairo.jl` based, non-interactive 2D (and some 3D) backend  for publication-quality vector graphics. |
-| [`WGLMakie.jl`](/explanations/backends/wglmakie/)     | WebGL-based interactive 2D and 3D plotting that runs within browsers.                                                   |
-| [`RPRMakie.jl`](/explanations/backends/rprmakie/)     | An experimental ray tracing backend.                                                                                    |
+| 包名                                                    | 描述                                               |
+| :---------------------------------------------------- | :----------------------------------------------- |
+| [`GLMakie.jl`](/explanations/backends/glmakie/)       | 基于 GPU、在独立 `GLFW.jl` 窗口中进行交互式 2D 和 3D 绘图的后端。     |
+| [`CairoMakie.jl`](/explanations/backends/cairomakie/) | 基于 `Cairo.jl`、非交互式的 2D（及部分 3D）后端，适用于生成出版质量的矢量图形。 |
+| [`WGLMakie.jl`](/explanations/backends/wglmakie/)     | 基于 WebGL 的交互式 2D 和 3D 绘图后端，可在浏览器内运行。             |
+| [`RPRMakie.jl`](/explanations/backends/rprmakie/)     | 一个实验性的光线追踪后端。                                    |
 
-### Activating Backends
+### 激活后端
 
-You can activate any backend by `using` the appropriate package and calling its `activate!` function.
+您可以通过 `using` 相应的包并调用其 `activate!` 函数来激活任何后端。
 
-Example with WGLMakie:
+以WGLMakie为例：
 
 ```julia
 using WGLMakie
 WGLMakie.activate!()
 ```
 
-Each backend's `activate!` function optionally takes keyword arguments (referred to as `screen_config...`) that control various aspects of the backend.
+每个后端的 `activate!` 函数可选地接受关键字参数（称为 `screen_config...`），用于控制后端的各种方面。
+例如，要激活GLMakie后端并将其配置为生成具有自定义标题且无抗锯齿的窗口：
 For example, to activate the GLMakie backend and set it up to produce windows with a custom title and no anti-aliasing:
 
 ```julia
@@ -31,4 +33,4 @@ using GLMakie
 GLMakie.activate!(title = "Custom title", fxaa = false)
 ```
 
-The keyword arguments accepted by each backend are listed in the backend-specific documentation pages linked in the table above.
+各后端所接受的关键字参数在其表格上方链接的特定后端文档页面中有详细列出。
