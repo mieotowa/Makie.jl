@@ -1,7 +1,6 @@
-# Toggle
+# 开关（Toggle）
 
-A toggle with an attribute `active` that can either be true or false, to enable
-or disable properties of an interactive plot.
+一个带有属性 `active` 的开关，该属性可以为真或假，用于启用或禁用交互式绘图的属性。
 
 \begin{examplefigure}{}
 
@@ -29,6 +28,6 @@ fig
 
 \end{examplefigure}
 
-## Attributes
+## 属性
 
 \attrdocs{Toggle}
