@@ -1,8 +1,8 @@
-# rangebars
+# 范围条（rangebars）
 
 {{doc rangebars}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
