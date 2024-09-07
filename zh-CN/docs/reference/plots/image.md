@@ -1,8 +1,8 @@
-# image
+# 图像
 
 {{doc image}}
 
-## Examples
+## 示例
 
 \begin{examplefigure}{}
 
