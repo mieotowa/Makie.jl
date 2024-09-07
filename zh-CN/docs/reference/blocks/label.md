@@ -1,10 +1,12 @@
-# Label
+# 标签（Label）
 
-A Label is text within a rectangular boundingbox.
+Label 是一个矩形边界内的文本。
+`halign` 和 `valign` 属性始终与未旋转的水平和垂直方向相关。
+这与 `text` 不同，在 text 中对齐是相对于文字流动方向的。
 The `halign` and `valign` attributes always refer to unrotated horizontal and vertical.
 This is different from `text`, where alignment is relative to text flow direction.
 
-A Label's size is known, so if `tellwidth` and `tellheight` are set to `true` (the default values) a GridLayout with `Auto` column or row sizes can shrink to fit.
+Label 的大小是已知的，因此如果将 `tellwidth` 和 `tellheight` 设置为 `true`（默认值），带有 `Auto` 列或行尺寸的 GridLayout 可以缩小以适应 Label 大小。
 
 \begin{examplefigure}{svg = true}
 
@@ -25,7 +27,7 @@ fig
 
 \end{examplefigure}
 
-Justification and lineheight of a label can be controlled just like with normal text.
+Label 的对齐方式和行距可以像处理普通文本一样进行控制。
 
 \begin{examplefigure}{svg = true}
 
@@ -58,6 +60,6 @@ f
 
 \end{examplefigure}
 
-## Attributes
+## 属性
 
 \attrdocs{Label}
