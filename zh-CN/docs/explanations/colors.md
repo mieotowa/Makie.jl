@@ -16,9 +16,9 @@ If values exceed the `colorrange` at the low or high end, by default the start o
 
 ## Alpha or Opacity
 
-You can use `alpha` keyword in most Makie Plots.
+There are no `alpha` or `opacity` keywords in Makie.
 
-Alternatively, one can make partially transparent colors or colormaps by passing a tuple `(color, alpha)` to the color/colormap attribute.
+Instead, one can make partially transparent colors or colormaps by using a tuple `(color, alpha)`.
 
 ## Cheat Sheet
 
