@@ -1,4 +1,4 @@
-# Menu
+# 菜单
 
 {{doc Menu}}
 
@@ -53,9 +53,9 @@ fig
 
 \end{examplefigure}
 
-## Menu direction
+## 菜单方向
 
-You can change the direction of the menu with `direction = :up` or `direction = :down`. By default, the direction is determined automatically to avoid cutoff at the figure boundaries.
+您可以使用 `direction = :up` 或 `direction = :down` 更改菜单的方向。 默认情况下，方向会自动确定以避免在图形边界处被截断。 By default, the direction is determined automatically to avoid cutoff at the figure boundaries.
 
 \begin{examplefigure}{}
 
@@ -76,6 +76,6 @@ fig
 
 \end{examplefigure}
 
-## Attributes
+## 属性
 
 \attrdocs{Menu}
