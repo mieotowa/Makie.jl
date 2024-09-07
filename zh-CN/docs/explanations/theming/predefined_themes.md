@@ -1,6 +1,7 @@
-# Predefined themes
+# 预定义主题
 
-Makie has a few predefined themes.
+Makie 提供了一些预定义的主题。
+以下展示了使用这些不同主题渲染的同一示例图形。
 Here you can see the same example figure with these different themes applied.
 
 ```
@@ -71,7 +72,7 @@ end
 <label for="hidecode" class="hidecode"></label>
 ```
 
-## Default theme
+## 默认主题
 
 \begin{examplefigure}{}
 
