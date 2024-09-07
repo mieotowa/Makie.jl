@@ -1,8 +1,8 @@
-# pie
+# 派（pie）
 
 {{doc pie}}
 
-## Examples
+## 示例
 
 \begin{examplefigure}{}
 
