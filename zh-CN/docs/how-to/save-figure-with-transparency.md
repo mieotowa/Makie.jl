@@ -1,8 +1,9 @@
-# How to save a `Figure` with transparency
+# 如何保存具有透明背景的 `Figure`
 
 ## CairoMakie
 
-In CairoMakie, set the background color to `:transparent` (converts to `RGBAf(0, 0, 0, 0)`) to get a fully transparent background.
+在 CairoMakie 中，将背景颜色设置为 `:transparent`（转换为 `RGBAf(0, 0, 0, 0)`），即可获得全透明背景。
+以下示例中，我使用了半透明蓝色，因为在白色页面上透明背景与常规白色难以区分。
 In the following examples, I use a partially transparent blue because a transparent background is indistinguishable from the usual white on a white page.
 
 \begin{examplefigure}{svg = true}
@@ -20,7 +21,7 @@ f
 
 ## GLMakie
 
-For technical reasons, GLMakie's color buffer does not have an alpha component:
+出于技术原因，GLMakie 的颜色缓冲区不包含 alpha 组件：
 
 \begin{examplefigure}{}
 
@@ -36,7 +37,8 @@ f
 
 \end{examplefigure}
 
-With the following trick you can still save an image with transparent background.
+通过以下技巧，您仍然可以保存具有透明背景的图像。
+其原理是设置两种不同的背景颜色，并通过计算两者之间的差异来得出带 alpha 通道的前景色。
 It works by setting two different background colors and calculating the foreground color with alpha from the difference.
 
 ```julia:transparent-glmakie
