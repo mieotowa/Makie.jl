@@ -1,15 +1,17 @@
-# Slider
+# 滑块（Slider）
 
 A simple slider without a label. You can create a label using a `Label` object,
 for example. You need to specify a range that constrains the slider's possible values.
 
 The currently selected value is in the attribute `value`.
-Don't change this value manually, but use the function `set_close_to!(slider, value)`.
+当前选定的值存储在属性 `value` 中。
+不要手动更改这个值，而是使用函数 `set_close_to!(slider, value)`
+来确保值确实存在于 `range` 属性内。
 This is necessary to ensure the value is actually present in the `range` attribute.
 
-You can double-click the slider to reset it (approximately) to the value present in `startvalue`.
+双击滑块可将其重置到（大约）startvalue 中存储的值。
 
-If you set the attribute `snap = false`, the slider will move continously while dragging and only jump to the closest available value when releasing the mouse.
+如果设置属性 `snap = false`，滑块在拖动过程中会连续移动，并仅在释放鼠标时跳至最近的有效值。
 
 \begin{examplefigure}{}
 
@@ -36,10 +38,10 @@ fig
 
 \end{examplefigure}
 
-## Labelled sliders and grids
+## 带标签的滑块和网格
 
-The functions \apilink{labelslider!} and \apilink{labelslidergrid!} are deprecated, use \apilink{SliderGrid} instead.
+函数 \apilink{labelslider!} 和 \apilink{labelslidergrid!} 已弃用，请改用 \apilink{SliderGrid}。
 
-## Attributes
+## 属性
 
 \attrdocs{Slider}
