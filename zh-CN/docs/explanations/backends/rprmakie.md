@@ -1,21 +1,23 @@
 # RPRMakie
 
-Experimental ray tracing backend using AMDs [RadeonProRender](https://radeon-pro.github.io/RadeonProRenderDocs/en/index.html).
+RPRMakie 是一个实验性的光线追踪后端，使用 AMD 开发的 [RadeonProRender](https://radeon-pro.github.io/RadeonProRenderDocs/en/index.html) 技术。
+尽管由 AMD 制作并针对 Radeon GPU 优化，它同样适用于使用 OpenCL 的 NVIDIA 和 Intel GPU。
+此外，RPRMakie 还能在 CPU 上运行，并且具备混合模式，能够同时利用 GPU 和 CPU 合力渲染图像。
 While it's created by AMD and tailored to Radeon GPUs, it still works just as well for NVidia and Intel GPUs using OpenCL.
 It also works on the CPU and even has a hybrid modus to use GPUs and CPUs in tandem to render images.
 
-RadeonProRender currently only works on Windows and Linux, and crashes on OSX when creating the most basic context. If you're on OSX and good at debugging segfaults, help us by debugging:
+目前，RadeonProRender 仅支持 Windows 和 Linux 系统，在 macOS 上尝试创建最基础的上下文时会崩溃。 如果您使用的是 macOS 并擅长调试段错误（segfault），请帮助我们进行调试： If you're on OSX and good at debugging segfaults, help us by debugging:
 
 ```julia
 using RadeonProRender
 RadeonProRender.Context()
 ```
 
-To use RPRMakie on a Mac with an M-series chip, for now, you need to use the x84 build of Julia (not the ARM build, you may have to download this manually).  RadeonProRender does not distribute binaries built for the ARM architecture of the M-series processors yet.
+要在配备 M 系列芯片的 Mac 上使用 RPRMakie，当前需要使用 x86 构建的 Julia（而非 ARM 构建，可能需要手动下载）。  RadeonProRender 尚未发布针对 M 系列处理器 ARM 架构的二进制文件。  RadeonProRender does not distribute binaries built for the ARM architecture of the M-series processors yet.
 
-## Activation and screen config
+## 激活 RPRMakie 与 screen 配置
 
-Activate the backend by calling `RPRMakie.activate!()` with the following options:
+通过调用 `RPRMakie.activate!()` 函数并设置以下选项来激活该后端：
 
 ```julia:docs
 # hideall
@@ -27,61 +29,61 @@ println("~~~")
 
 \textoutput{docs}
 
-Since RPRMakie is quite the unique backend and still experimental, there are several gotchas when working with it.
+由于 RPRMakie 是一个非常独特且仍在实验阶段的后端，在使用时需要注意以下几个要点：
 
 ```julia
-fig = Figure(); # RPRMakie can't show Figures yet, since it only supports a physical 3D camera
+fig = Figure(); # RPRMakie 当前不支持显示 Figures，因为它只支持物理三维相机
 radiance = 10000
-# Lights are much more important for ray tracing,
-# so most examples will use extra lights and environment lights.
-# Note, that RPRMakie is the only backend
-# supporting multiple light sources and EnvironmentLights right now
+# 对于光线追踪来说，光源至关重要，
+# 因此大多数示例会使用额外的灯光和环境光源。
+# 注意，RPRMakie 是当前唯一支持多光源和 EnvironmentLights 的后端
 lights = [
     EnvironmentLight(0.5, Makie.FileIO.load(RPR.assetpath("studio026.exr"))),
     PointLight(Vec3f(0, 0, 20), RGBf(radiance, radiance, radiance))
 ]
 
-# Only LScene is supported right now,
-# since the other projections don't map to the pysical acurate Camera in RPR.
+# 目前仅支持 LScene，
+# 因为其他投影方式与 RPR 中物理精确的相机不匹配
 ax = LScene(fig[1, 1]; show_axis = false, scenekw=(lights=lights,))
-# Note that since RPRMakie doesn't yet support text (this is being worked on!),
-# you can't show a 3d axis yet.
+# 由于 RPRMakie 当前还不支持文字（正在开发中！），
+# 无法显示三维坐标轴
 
-# to create materials, one needs access to the RPR context.
-# Note, if you create an Screen manually, don't display the scene or fig anymore, since that would create a new RPR context, in which resources from the manually created Context would be invalid. Since RPRs error handling is pretty bad, this usually results in Segfaults.
-# See below how to render a picture with a manually created context
+# 创建材质时需要访问 RPR 上下文。
+# 注意，如果您手动创建了 Screen，则不应再对场景或 fig 调用 display，因为那样会创建一个新的 RPR 上下文，在其中手动创建的上下文中的资源无效。由于 RPR 错误处理较差，这通常会导致段错误（Segfaults）。
+# 请参阅下文如何使用手动创建的上下文渲染图像
 screen = RPRMakie.Screen(ax.scene; iterations=10, plugin=RPR.Northstar)
 matsys = screen.matsys
 context = screen.context
-# You can use lots of materials from RPR.
-# Note, that this API may change in the future to a backend  independent representation
-# Or at least one, that doesn't need to access the RPR context
+# 您可以使用 RPR 中的多种材质。
+# 注意，此 API 可能在未来发生变化，以适应独立于后端的表示方式
+# 或至少不再需要直接访问 RPR 上下文
 mat = RPR.Chrome(matsys)
-# The material attribute is specific to RPRMakie and gets ignored by other Backends. This may change in the future
+# 材质属性是 RPRMakie 特有的，被其他后端忽略。这一情况未来可能会有所变化
 mesh!(ax, Sphere(Point3f(0), 1), material=mat)
 
-# There are three main ways to turn a Makie scene into a picture:
-# Get the colorbuffer of the Screen. Screen also has `show` overloaded for the mime `image\png` so it should display in IJulia/Jupyter/VSCode.
+# 将 Makie 场景转化为图像有三种主要方式：
+# 获取 Screen 的颜色缓冲区。Screen 对 `image\png` MIME 类型的 `show` 方法进行了重载，因此应该能在 IJulia、Jupyter 或 VSCode 中显示
 image = colorbuffer(screen)::Matrix{RGB{N0f8}}
-# Replace a specific (sub) LScene with RPR, and display the whole scene interactively in RPRMakie
+# 使用 RPR 替换特定（子）LScene，并在 RPRMakie 中交互式地显示整个场景
 using RPRMakie
-refres = Observable(nothing) # Optional observable that triggers
-RPRMakie.activate!(); display(fig) # Make sure to display scene first in RPRMakie
-# Replace the scene with an interactively rendered RPR output.
-# See more about this in the RPRMakie interop example
+refres = Observable(nothing) # 可选的触发刷新的 Observable
+RPRMakie.activate!(); display(fig) # 确保首先在 RPRMakie 中显示场景
+# 用交互式 RPR 输出替换场景。有关此功能的更多信息，请参阅 RPRMakie 互操作示例
 context, task = RPRMakie.replace_scene_rpr!(ax.scene, screen; refresh=refresh)
-# If one doesn't create the Screen manually to create custom materials,
+# 如果不手动创建 Screen 来创建自定义材质，
 # display(ax.scene), show(io, MIME"image/png", ax.scene), save("rpr.png", ax.scene)
-# Should work just like with other backends.
-# Note, that only the scene from LScene can be displayed directly, but soon, `display(fig)` should also work.
+# 应该像使用其他后端一样正常工作。
+# 注意，只有来自 LScene 的场景可以直接显示，但很快 `display(fig)` 也应该能工作。
 ```
 
 There are several examples showing different aspects of how to use RPRMakie.
-The examples are in [RPRMakie/examples](https://github.com/MakieOrg/Makie.jl/tree/master/RPRMakie/examples)
+RPRMakie 提供了一系列示例，展示了如何使用该后端的不同方面。
+这些示例位于 [RPRMakie/examples](https://github.com/MakieOrg/Makie.jl/tree/master/RPRMakie/examples)
 
-## MaterialX and predefined materials (materials.jl)
+## MaterialX 和预定义材质（materials.jl）
 
-There are several predefined materials one can use in RadeonProRender.
+RadeonProRender 中有几种预定义的材质可供使用。
+RPR还支持 [MaterialX](https://www.materialx.org/) 标准，以加载各种预定义材质。 请确保在 `MaterialX` 中使用 Northstar 后端。
 RPR also supports the [MaterialX](https://www.materialx.org/) standard to load a wide range of predefined Materials. Make sure to use the Northstar backend for `MaterialX`.
 
 ```
@@ -145,7 +147,7 @@ save("materials.png", image)
 <img src="/assets/materials.png">
 ```
 
-## Advanced custom material (earth_topography.jl)
+## 高级自定义材质（earth_topography.jl）
 
 ```
 <input id="hidecode4" class="hidecode" type="checkbox">
@@ -215,9 +217,10 @@ save("topographie.png", ax.scene)
 <img src="/assets/topographie.png">
 ```
 
-## RPRMakie interop (opengl_interop.jl)
+## RPRMakie 互操作（opengl_interop.jl）
 
-RPRMakie doesn't support layouting and sub scenes yet, but you can replace a single scene with a RPR rendered, interactive window.
+RPRMakie 目前不支持布局和子场景，但您可以用 RPR 渲染的交互式窗口替换单个场景。
+这对于在光线追踪场景旁边显示 2D 图形和交互式 UI 元素，并交互地调整相机和材质参数特别方便。
 This is especially handy, to show 2d graphics and interactive UI elements next to a ray traced scene and interactively tune camera and material parameters.
 
 ```
@@ -325,9 +328,9 @@ end
 </video>
 ```
 
-## Animations (lego.jl)
+## 动画（lego.jl）
 
-Not all objects support updating via Observables yet, but translations, camera etc are already covered and can be used together with Makie's standard animation API.
+并非所有对象都已支持通过 Observables 进行更新，但平移、相机等属性已经支持，并且可以与 Makie 的标准动画 API 结合使用。
 
 ```
 <input id="hidecode2" class="hidecode" type="checkbox">
@@ -442,7 +445,7 @@ end
 </video>
 ```
 
-## Earth example
+## 地球示例
 
 ```
 <input id="hidecode1" class="hidecode" type="checkbox">
