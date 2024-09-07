@@ -1,6 +1,6 @@
-# Textbox
+# 文本框
 
-The `Textbox` supports entry of a simple, single-line string, with optional validation logic.
+`Textbox` 支持输入简单的单行字符串，同时可选配验证逻辑。
 
 \begin{examplefigure}{}
 
@@ -18,9 +18,9 @@ f
 
 \end{examplefigure}
 
-## Validation
+## 验证
 
-The `validator` attribute is used with `validate_textbox(string, validator)` to determine if the current string is valid. It can be a `Regex` that needs to match the complete string, or a `Function` taking a `String` as input and returning a `Bool`. If the validator is a type T (for example `Float64`), validation will be `tryparse(T, string)`. The textbox will not allow submitting the currently entered value if the validator doesn't pass.
+`validator` 属性与 `validate_textbox(string, validator)` 一起使用，判断当前字符串是否有效。 它可以是一个需要与完整字符串匹配的 `Regex`，或者是一个接受 `String` 作为输入并返回 `Bool` 的 `Function`。 如果验证器是一个类型 T（例如 `Float64`），验证将使用 `tryparse(T, string)`。 如果验证器未能通过，文本框将不允许提交当前输入的值。 It can be a `Regex` that needs to match the complete string, or a `Function` taking a `String` as input and returning a `Bool`. If the validator is a type T (for example `Float64`), validation will be `tryparse(T, string)`. The textbox will not allow submitting the currently entered value if the validator doesn't pass.
 
 \begin{examplefigure}{}
 
@@ -50,6 +50,6 @@ f
 
 \end{examplefigure}
 
-## Attributes
+## 属性
 
 \attrdocs{Textbox}
