@@ -1,8 +1,8 @@
-# text
+# 文本
 
 {{doc text}}
 
-## Marker space pixel
+## 标记空间像素
 
 By default, text is drawn with `markerspace = :pixel`, which means that the text size is interpreted in pixel space.
 (The space of the text position is determined by the `space` attribute instead.)
@@ -122,7 +122,7 @@ for ((justification, halign), point) in zip(Iterators.product(symbols, symbols),
         align = (halign, :center),
         justification = justification)
 
-    bb = boundingbox(t, :pixel)
+    bb = boundingbox(t)
     wireframe!(scene, bb, color = (:red, 0.2))
 end
 
