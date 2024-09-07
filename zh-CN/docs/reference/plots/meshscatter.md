@@ -1,8 +1,8 @@
-# meshscatter
+# 网格散点（meshscatter）
 
 {{doc meshscatter}}
 
-## Examples
+## 示例
 
 \begin{examplefigure}{}
 
