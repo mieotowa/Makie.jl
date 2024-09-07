@@ -1,4 +1,4 @@
-# Scenes
+# scene.events
 
 ## What is a `Scene`?
 
@@ -25,13 +25,13 @@ Any keyword argument given to the `Scene` will be propagated to its plots; there
 
 A subscene is no different than a normal Scene, except that it is linked to a "parent" Scene.  It inherits the transformations of the parent Scene, but can then be transformed independently of it.
 
-## Scene Attributes
+## Scene tutorial
 
 - `scene.clear = true`: Scenes are drawn parent first onto the same image. If `clear = true` for a (sub)scene it will clear the previously drawn things in its region to its `backgroundcolor`. Otherwise the plots in `scene` will be drawn on top and the backgroundcolor will be ignored. Note that this is not technically an attribute but just a field of `Scene`.
 - `ssao = SSAO(bias = 0.025, blur=2, radius=0.5)`: Controls SSAO settings, see lighting documentation.
 - `size = (800, 600)`: Sets the size of the created window if the scene is the root scene.
 
-## Modifying A Scene
+## Transformations and Scene graph
 
 Makie offers mutation functions to scale, translate and rotate your Scenes on the fly.
 
@@ -46,6 +46,6 @@ Makie provides three main updating functions:
 
 {{doc update_cam!}}
 
-## Events
+## Window Events
 
 Scenes have several pre-created event "hooks" (through Observables) that you can handle.  These can be accessed through `scene.events`, which returns an \apilink{Events} struct.
