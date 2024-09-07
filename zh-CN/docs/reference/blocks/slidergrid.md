@@ -1,8 +1,10 @@
-# SliderGrid
+# 滑块网格（SliderGrid）
 
 {{doc SliderGrid}}
 
-The column with the value labels is automatically set to a fixed width, so that the layout doesn't jitter when sliders are dragged and the value labels change their widths.
+包含值标签的列会自动设置为固定宽度，这样在拖动滑块并导致值标签宽度变化时，布局不会出现抖动。
+此宽度是通过将每个滑块设置为几个值并记录最大标签宽度来选择的。
+另外，您也可以通过属性 `value_column_width` 手动设置宽度。
 This width is chosen by setting each slider to a few values and recording the maximum label width.
 Alternatively, you can set the width manually with attribute `value_column_width`.
 
@@ -36,6 +38,6 @@ fig
 
 \end{examplefigure}
 
-## Attributes
+## 属性
 
 \attrdocs{SliderGrid}
