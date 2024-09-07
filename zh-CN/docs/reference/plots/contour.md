@@ -2,7 +2,7 @@
 
 {{doc contour}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
@@ -48,7 +48,7 @@ f
 
 \end{examplefigure}
 
-One can also add labels and control label attributes such as `labelsize`, `labelcolor` or `labelfont`.
+此外，还可以添加标签并控制标签属性，如 `labelsize`、`labelcolor` 或 `labelfont`。
 
 \begin{examplefigure}{}
 
