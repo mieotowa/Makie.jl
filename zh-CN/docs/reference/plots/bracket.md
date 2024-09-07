@@ -1,8 +1,8 @@
-# bracket
+# 括号
 
 {{doc bracket}}
 
-### Examples
+### 示例
 
 #### Scalar arguments
 
@@ -31,7 +31,7 @@ f
 
 \end{examplefigure}
 
-#### Vector arguments
+#### 矢量参数
 
 \begin{examplefigure}{}
 
@@ -66,7 +66,7 @@ f
 
 \end{examplefigure}
 
-#### Styles
+#### 样式
 
 \begin{examplefigure}{}
 
