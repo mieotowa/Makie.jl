@@ -2,7 +2,7 @@
 
 {{doc contour3d}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
