@@ -1,8 +1,8 @@
-# stairs
+# 梯形图（stairs）
 
 {{doc stairs}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
