@@ -1,8 +1,8 @@
-# streamplot
+# 流图（streamplot）
 
 {{doc streamplot}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
