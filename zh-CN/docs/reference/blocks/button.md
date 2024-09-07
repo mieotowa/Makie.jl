@@ -1,4 +1,4 @@
-# Button
+# 按钮
 
 \begin{examplefigure}{}
 
@@ -31,6 +31,6 @@ fig
 
 \end{examplefigure}
 
-## Attributes
+## 属性
 
 \attrdocs{Button}
