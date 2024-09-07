@@ -2,7 +2,7 @@
 @def hidden = true
 @def searchpage = true
 
-## Search
+## 搜索
 
 ```
 <div id="makiesearch"></div>
