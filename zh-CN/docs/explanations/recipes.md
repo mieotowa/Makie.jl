@@ -351,7 +351,7 @@ see https://github.com/jkrumbiegel/MakiePkgExtTest.
 The following documentation explains the basics of the implementation
 in the linked example.
 
-Set up your [package extension](https://pkgdocs.julialang.org/v1/creating-packages/#Conditional-loading-of-code-in-packages-\(Extensions\))
+Set up your [package extension](https://pkgdocs.julialang.org/v1/creating-packages/#Conditional-loading-of-code-in-packages-\\(Extensions\\))
 to have `Makie` as a dependency, not `MakieCore` or any of the Makie backends.
 
 You'll have to define and export your full recipe functions in your main package,
