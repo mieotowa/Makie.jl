@@ -1,8 +1,8 @@
-# crossbar
+# 横杆（crossbar）
 
 {{doc crossbar}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
