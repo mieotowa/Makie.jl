@@ -1,5 +1,5 @@
 # Axis3
 
-## Attributes
+## 属性
 
 \attrdocs{Axis3}
