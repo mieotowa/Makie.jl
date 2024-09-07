@@ -1,11 +1,11 @@
-# qqplot and qqnorm
+# qqplot 和 qqnorm
 
 {{doc qqplot}}
 {{doc qqnorm}}
 
-### Examples
+### 示例
 
-Test if `xs` and `ys` follow the same distribution.
+测试 `xs` 和 `ys` 是否遵循相同的分布。
 
 \begin{examplefigure}{}
 
@@ -22,7 +22,7 @@ qqplot(xs, ys, qqline = :identity)
 
 \end{examplefigure}
 
-Test if `ys` is normally distributed.
+测试 `ys` 是否服从正态分布。
 
 \begin{examplefigure}{}
 
