@@ -1,7 +1,9 @@
-# How to draw boxes around subfigures
+# 如何在子图周围绘制框
 
 If you want to show that several elements in a `Figure` belong together, you can do this by placing them all in a container.
-The trick is to use a nested `GridLayout` for each group of objects and place a `Box` at the same position as this `GridLayout`.
+如果您想表明 Figure 中的几个元素属于一组，可以通过将它们全部放入一个容器来实现这一目的。
+诀窍是为每组对象使用嵌套的 `GridLayout`，并在相同位置放置一个 `Box`。
+然后，设置 `alignmode = Outside(some_padding)` 可确保具有突出部分（如 `Axis`）的对象完全包含在包围框内。
 Then the `alignmode = Outside(some_padding)` ensures that objects with protrusions sticking out, like `Axis`, are fully contained within the enclosing boxes.
 
 \begin{examplefigure}{}
