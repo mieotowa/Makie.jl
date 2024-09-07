@@ -2,7 +2,7 @@
 
 {{doc barplot}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
