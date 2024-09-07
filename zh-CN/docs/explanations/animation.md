@@ -1,10 +1,10 @@
-# Animations
+# 动画
 
 With Makie it is easy to create animated plots.
 Animations work by making changes to data or plot attribute Observables and recording the changing figure frame by frame.
 You can find out more about the Observables workflow on the \myreflink{Observables & Interaction} page.
 
-## A simple example
+## 一个简单的示例
 
 To create an animation you need to use the \apilink{record} function.
 
@@ -48,7 +48,7 @@ end
 record(change_function, fig, "color_animation.mp4", hue_iterator; framerate = framerate)
 ```
 
-## File formats
+## 文件格式
 
 Video files are created with [`FFMPEG_jll.jl`](https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl).
 You can choose from the following file formats:
@@ -58,7 +58,7 @@ You can choose from the following file formats:
 - `.webm` (smallest file size)
 - `.gif` (lowest quality with largest file size)
 
-## Animations using `Observables`
+## 使用 `Observables` 创建动画
 
 Often, you want to animate a complex plot over time, and all the data that is displayed should be determined by the current time stamp.
 Such a dependency is really easy to express with `Observables`.
