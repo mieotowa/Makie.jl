@@ -76,11 +76,11 @@ f
 
 \end{examplefigure}
 
-#### Relative mode
+#### 相对模式
 
 Sometimes it's beneficial to drop one part of the range of values, usually towards the outer boundary.
-Rather than specifying the levels to include manually, you can set the `mode` attribute
-to `:relative` and specify the levels from 0 to 1, relative to the current minimum and maximum value.
+有时，为了突出中间部分的细节，会希望忽略数据值范围的某个端点（通常是边界）。
+此时，无需手动指定包含的等级，而是可以将 `mode` 属性设置为 `:relative`，并以当前最小值和最大值为基础，使用 0 到 1 的比例来指定等级。
 
 \begin{examplefigure}{svg = true}
 
