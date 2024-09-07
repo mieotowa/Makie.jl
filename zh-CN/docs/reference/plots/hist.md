@@ -2,7 +2,7 @@
 
 {{doc hist}}
 
-### Examples
+### 示例
 
 \begin{examplefigure}{}
 
@@ -23,10 +23,9 @@ f
 
 \end{examplefigure}
 
-#### Histogram with labels
+#### 带标签的直方图
 
-You can use all the same arguments as \apilink{barplot}:
-\begin{examplefigure}{}
+您可以使用与 \apilink{barplot} 相同的所有参数： \begin{examplefigure}{}
 
 ```julia
 using CairoMakie
@@ -41,12 +40,13 @@ hist(data, normalization = :pdf, bar_labels = :values,
 
 \end{examplefigure}
 
-#### Moving histograms
+#### 移动直方图
 
 With `scale_to`, and `offset`, one can put multiple histograms into the same plot.
 Note, that offset automatically sets fillto, to move the whole barplot.
-Also, one can use a negative `scale_to` amount to flip the histogram,
-or `scale_to=:flip` to flip the direction of the bars without changing their height.
+通过 `scale_to` 和 `offset` 参数，您可以在同一幅图中放置多个直方图。
+请注意，offset 参数会自动设置 fillto，以移动整个条形图。
+此外，您还可以使用负值 `scale_to` 使直方图翻转，或者使用 `scale_to=:flip` 来改变条形的方向而不改变其高度。
 
 \begin{examplefigure}{}
 
@@ -64,7 +64,7 @@ fig
 
 \end{examplefigure}
 
-#### Using statistical weights
+#### 使用统计权重
 
 \begin{examplefigure}{}
 
