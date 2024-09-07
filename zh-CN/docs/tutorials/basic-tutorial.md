@@ -1,31 +1,34 @@
-@def description = "Learn how to create data visualizations with Makie, the plotting ecosystem for the Julia language, in this introductory tutorial. Topics include Makie's different backends, basic building blocks like Figure, Axis, lines and scatters as well as how to theme your plots and create layouts with multiple subplots."
+@def description = "学习如何使用Julia语言的绘图生态系统Makie创建数据可视化，本入门教程将介绍如何操作。 主题包括 Makie 的不同后端，基本构件如 Figure、Axis、线条和散点图，以及如何为您的图表设置主题并创建具有多个子图的布局。 Topics include Makie's different backends, basic building blocks like Figure, Axis, lines and scatters as well as how to theme your plots and create layouts with multiple subplots."
 
-# Basic Tutorial
+# 基础教程
 
 ## Preface
 
-Here is a quick tutorial to get you started with Makie!
+这是一个快速教程，帮助您开始使用 Makie！
 
-Makie is the name of the whole plotting ecosystem and `Makie.jl` is the main package that describes how plots work.
+Makie 是整个绘图生态系统的统称，而 `Makie.jl` 则是主要包，定义了如何创建图表。
+为了实际渲染并保存图表，我们需要一个能够将图表转化为图像或矢量图形的后端。
 To actually render and save plots, we need a backend that knows how to translate plots into images or vector graphics.
 
-There are three main backends which you can use to render plots (for more information, have a look at \myreflink{Backends}):
+有三个主要的后端可供您用来渲染图表（欲了解更多信息，请参阅\myreflink{Backends}）：
 
-- `CairoMakie.jl` if you want to render vector graphics or high quality 2D images and don't need interactivity or true 3D rendering.
-- `GLMakie.jl` if you need interactive windows and true 3D rendering but no vector output.
-- Or `WGLMakie.jl` which is similar to `GLMakie` but works in web browsers, not native windows.
+- 如果您需要生成矢量图形或高质量 2D 图像，且不需要交互性或真 3D 渲染，可选用 `CairoMakie.jl`。
+- 若需具备交互式窗口和真 3D 渲染功能，但无需矢量输出，则应选择 `GLMakie.jl`。
+- 类似于 `GLMakie` 的 `WGLMakie.jl` 则适用于在 Web 浏览器而非本地窗口中工作。
 
 This tutorial uses CairoMakie, but the code can be executed with any backend.
 Note that CairoMakie can _create_ images but it cannot _display_ them.
 
-To see the output of plotting commands when using CairoMakie, we recommend you either use an IDE which supports png or svg output, such as VSCode, Atom/Juno, Jupyter, Pluto, etc., or try using a viewer package such as [ElectronDisplay.jl](https://github.com/queryverse/ElectronDisplay.jl), or alternatively save your plots to files directly.
+使用 CairoMakie 时，为查看绘图命令的输出结果，我们建议您选用支持 png 或 svg 输出的 IDE，如 VSCode、Atom/Juno、Jupyter、Pluto 等，或者尝试使用像 [ElectronDisplay.jl](https://github.com/queryverse/ElectronDisplay.jl) 这样的查看器包。
+纯 Julia REPL 本身不具备显示图表的功能。
 The Julia REPL by itself does not have the ability to show the plots.
 
-Ok, now that this is out of the way, let's get started!
+明确了这些前提之后，就让我们开始吧！
 
-## Importing
+## 导入
 
-First, we import CairoMakie. This makes all the exported symbols from `Makie.jl` available as well.
+首先，我们导入 CairoMakie。 这样 `Makie.jl` 中的所有导出符号也将可用。 本教程以CairoMakie为例进行讲解，但所展示的代码适用于任何后端。
+请注意，CairoMakie虽能生成图像，但无法直接显示它们。
 
 ```julia:setup
 using CairoMakie
@@ -34,16 +37,18 @@ CairoMakie.activate!() # hide
 nothing # hide
 ```
 
-## Important objects
+## 重要对象
 
 The objects most important for our first steps with Makie are the `Figure`, the `Axis` and plots.
-In a normal Makie plot you will usually find a `Figure` which contains an `Axis` which contains one or more plot objects like `Lines` or `Scatter`.
+初涉 `Makie` 时，最重要的对象是 `Figure`、`Axis` 和 plots。
+在正常的 Makie 图表中，你通常会找到一个包含 `Axis` 的 `Figure`，而 `Axis` 又包含一个或多个图表对象，如 `Lines` 或 `Scatter`。
 
-In the next steps, we will take a look at how we can create these objects.
+接下来的步骤中，我们将学习如何创建这些对象。
 
-## An empty figure
+## 一个空图形
 
-The basic container object in Makie is the \apilink{Figure}.
+引言
+Makie 中的基本容器对象是 \apilink{Figure}。
 It is a canvas onto which we can add objects like `Axis`, `Colorbar`, `Legend` and others.
 
 Let's create a `Figure` and give it a background color other than the default white so we can see it.
