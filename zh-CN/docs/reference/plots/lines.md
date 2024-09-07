@@ -102,13 +102,13 @@ ps = rand(Point3f, 500)
 cs = rand(500)
 f = Figure(size = (600, 650))
 Label(f[1, 1], "base", tellwidth = false)
-lines(f[2, 1], ps, color = cs, fxaa = false)
+lines(f[2, 1], ps, color = cs, markersize = 20, fxaa = false)
 Label(f[1, 2], "fxaa = true", tellwidth = false)
-lines(f[2, 2], ps, color = cs, fxaa = true)
+lines(f[2, 2], ps, color = cs, markersize = 20, fxaa = true)
 Label(f[3, 1], "transparency = true", tellwidth = false)
-lines(f[4, 1], ps, color = cs, transparency = true)
+lines(f[4, 1], ps, color = cs, markersize = 20, transparency = true)
 Label(f[3, 2], "overdraw = true", tellwidth = false)
-lines(f[4, 2], ps, color = cs, overdraw = true)
+lines(f[4, 2], ps, color = cs, markersize = 20, overdraw = true)
 f
 ```
 
