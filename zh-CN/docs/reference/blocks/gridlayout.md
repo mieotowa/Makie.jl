@@ -345,3 +345,4 @@ fig
 ```
 
 \end{examplefigure}
+
