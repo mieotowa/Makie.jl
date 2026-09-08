@@ -1,0 +1,43 @@
+# 滑块网格（SliderGrid）
+
+{{doc SliderGrid}}
+
+包含值标签的列会自动设置为固定宽度，这样在拖动滑块并导致值标签宽度变化时，布局不会出现抖动。
+此宽度是通过将每个滑块设置为几个值并记录最大标签宽度来选择的。
+另外，您也可以通过属性 `value_column_width` 手动设置宽度。
+This width is chosen by setting each slider to a few values and recording the maximum label width.
+Alternatively, you can set the width manually with attribute `value_column_width`.
+
+\begin{examplefigure}{}
+
+```julia
+using GLMakie
+
+fig = Figure()
+
+ax = Axis(fig[1, 1])
+
+sg = SliderGrid(
+    fig[1, 2],
+    (label = "Voltage", range = 0:0.1:10, format = "{:.1f}V", startvalue = 5.3),
+    (label = "Current", range = 0:0.1:20, format = "{:.1f}A", startvalue = 10.2),
+    (label = "Resistance", range = 0:0.1:30, format = "{:.1f}Ω", startvalue = 15.9),
+    width = 350,
+    tellheight = false)
+
+sliderobservables = [s.value for s in sg.sliders]
+bars = lift(sliderobservables...) do slvalues...
+    [slvalues...]
+end
+
+barplot!(ax, bars, color = [:yellow, :orange, :red])
+ylims!(ax, 0, 30)
+
+fig
+```
+
+\end{examplefigure}
+
+## 属性
+
+\attrdocs{SliderGrid}
